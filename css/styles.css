@@ -2,3 +2,12 @@
 	margin-top: 20px;
 	margin-left: 20px;
 }
+
+.catNameListDiv {
+	margin-top: 20px;
+}
+
+.catNameDiv {
+	height: 30px;
+	max-width: 100%;
+}
