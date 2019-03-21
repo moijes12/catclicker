@@ -9,12 +9,6 @@ function CatPicObj(name, url) {
 	this.clickCount = 0;
 }
 
-// Create a list of cat pic objects
-const catPicObjList = [
-    new CatPicObj('gary', 'img/cat.jpg'),
-    new CatPicObj('robbie', 'img/cat2.jpg')
-];
-
 // The model
 let model = {
 	currentCat: null,
