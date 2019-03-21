@@ -70,27 +70,32 @@ let catView = {
 
 let catListView = {
 	init: function() {
-		this.catListElem = document.getElementById('cat-list');
+		this.catListElem = document.getElementById('cat-list-div');
 		this.render();
 	},
 
 	render: function() {
-		let cat, elem, i;
+		let buttonContainerElem;
 		let cats = controller.getCats();
 
 		this.catListElem.innerHTML = '';
-		for (i = 0; i < cats.length; i++) {
-			cat = cats[i];
-			elem = document.createElement('li');
-			elem.textContent = cat.name;
-			elem.addEventListener('click', (function(catCopy) {
+		for (let i = 0; i < cats.length; i++) {
+			let cat = cats[i];
+			buttonContainerElem = document.createElement("div");
+			buttonContainerElem.setAttribute("class", "col-sm");
+			let buttonElement = document.createElement("button");
+			buttonElement.setAttribute("type", "button");
+			buttonElement.setAttribute("class", "btn btn-primary");
+			buttonElement.textContent = cat.name;
+
+			buttonElement.addEventListener('click', (function(catCopy) {
 				return function() {
 					controller.setCurrentCat(catCopy);
 					catView.render();
 				};
 			})(cat));
-
-			this.catListElem.appendChild(elem);
+			buttonContainerElem.appendChild(buttonElement);
+			this.catListElem.appendChild(buttonContainerElem);
 		}
 	}
 };
